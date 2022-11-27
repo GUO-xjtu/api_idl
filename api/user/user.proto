@@ -1,0 +1,28 @@
+syntax = "proto3";
+
+package xiangqin;
+
+option go_package = "github.com/xiangqin/pb_gen/gen/api/user";
+
+/**
+  @URL: /xiangqin/api/user/register/
+  @NeedLogin: True
+  @Comment: 用户注册
+*/
+
+message UserRegisterRequest {
+  string user_name = 1;
+  int64 gender = 2;
+  string phone_num = 3;
+}
+
+message UserRegisterResponse {
+  message ResponseData {
+    message UserInfo {
+      string user_id = 1;  // 当前段位排名
+    }
+    UserInfo user_info = 1;
+  }
+  ResponseData data = 1;
+}
+
